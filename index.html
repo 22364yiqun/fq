@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人作品展示 - 专业简历</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 背景轮播 -->
+    <div class="background-carousel">
+        <div class="carousel-slide active" style="background-image: url('741d684a6ba8d056110de4a683e28a20.jpg')"></div>
+        <div class="carousel-slide" style="background-image: url('741d684a6ba8d056110de4a683e28a20.jpg')"></div>
+        <div class="carousel-overlay"></div>
+    </div>
+
+    <div class="container">
+        <!-- 头部区域 -->
+        <header class="header">
+            <div class="header-content">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <img src="zjz.jpg" alt="个人头像" id="profileImg">
+                        <div class="profile-badge">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h1 class="name">个人作品展示</h1>
+                        <p class="title">Professional Portfolio</p>
+                        <p class="subtitle">专业技能 · 创意作品 · 个人风采</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary" onclick="scrollToContent()">
+                        <i class="fas fa-arrow-down"></i> 查看作品
+                    </button>
+                    <button class="btn btn-outline" onclick="openPhotoGallery()">
+                        <i class="fas fa-images"></i> 个人相册
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content" id="main-content">
+            <!-- 个人照片展示区域 -->
+            <section class="photos-section">
+                <div class="section-header">
+                    <h2 class="section-title">个人风采</h2>
+                    <p class="section-subtitle">证件照</p>
+                </div>
+                
+                <div class="photo-display">
+                    <div class="photo-container">
+                        <div class="photo-item" onclick="openPhotoModal('zjz.jpg', '证件照')">
+                            <img src="zjz.jpg" alt="证件照">
+                            <div class="photo-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 作品展示区域 -->
+            <section class="works-section">
+                <div class="section-header">
+                    <h2 class="section-title">我的作品</h2>
+                    <p class="section-subtitle">展示专业技能与创意成果</p>
+                </div>
+
+                <!-- 作品板块展示 -->
+                <div class="works-blocks">
+                    <!-- 证书与材料板块 -->
+                    <div class="work-block">
+                        <div class="block-header">
+                            <div class="block-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="block-title">
+                                <h3>证书与材料</h3>
+                                <p>专业资质与成就展示</p>
+                            </div>
+                        </div>
+                        <div class="block-content">
+                            <div class="certificates-gallery">
+                                <div class="gallery-header">
+                                    <h4>个人证书与材料</h4>
+                                    <p>展示专业技能认证、学术成果和项目经验</p>
+                                </div>
+                                <div class="certificates-grid">
+                                    <div class="certificate-item" onclick="openCertificateModal('1.png', '专业证书')">
+                                        <img src="1.png" alt="证书1">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('2.png', '专业证书')">
+                                        <img src="2.png" alt="证书2">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('3.png', '专业证书')">
+                                        <img src="3.png" alt="证书3">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('4.png', '专业证书')">
+                                        <img src="4.png" alt="证书4">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('5.png', '专业证书')">
+                                        <img src="5.png" alt="证书5">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('6.png', '专业证书')">
+                                        <img src="6.png" alt="证书6">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('7.png', '专业证书')">
+                                        <img src="7.png" alt="证书7">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('8.png', '专业证书')">
+                                        <img src="8.png" alt="证书8">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('9.png', '专业证书')">
+                                        <img src="9.png" alt="证书9">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('10.png', '专业证书')">
+                                        <img src="10.png" alt="证书10">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('11.png', '专业证书')">
+                                        <img src="11.png" alt="证书11">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('12.png', '专业证书')">
+                                        <img src="12.png" alt="证书12">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('13.png', '专业证书')">
+                                        <img src="13.png" alt="证书13">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('14.png', '专业证书')">
+                                        <img src="14.png" alt="证书14">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('15.png', '专业证书')">
+                                        <img src="15.png" alt="证书15">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('16.png', '专业证书')">
+                                        <img src="16.png" alt="证书16">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('17.png', '专业证书')">
+                                        <img src="17.png" alt="证书17">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('18.png', '专业证书')">
+                                        <img src="18.png" alt="证书18">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('19.png', '专业证书')">
+                                        <img src="19.png" alt="证书19">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('EI论文.jpg', '学术成果')">
+                                        <img src="EI论文.jpg" alt="EI论文">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('SCI论文.jpg', '学术成果')">
+                                        <img src="SCI论文.jpg" alt="SCI论文">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="certificate-item" onclick="openCertificateModal('软著.jpg', '软件著作权')">
+                                        <img src="软著.jpg" alt="软件著作权">
+                                        <div class="certificate-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pdf-section">
+                                <div class="pdf-card" onclick="previewFile('证书与材料.pdf', 'pdf')">
+                                    <div class="pdf-icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div class="pdf-info">
+                                        <h5>证书与材料.pdf</h5>
+                                        <p>完整的证书与材料文档</p>
+                                        <div class="pdf-stats">
+                                            <span><i class="fas fa-file"></i> PDF文档</span>
+                                            <span><i class="fas fa-download"></i> 可下载</span>
+                                        </div>
+                                    </div>
+                                    <div class="pdf-action">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-actions">
+                                <button class="btn btn-primary" onclick="openAllCertificates()">
+                                    <i class="fas fa-images"></i> 查看全部证书
+                                </button>
+                                <button class="btn btn-secondary" onclick="downloadFile('证书与材料.pdf')">
+                                    <i class="fas fa-download"></i> 下载PDF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 软件演示板块 -->
+                    <div class="work-block">
+                        <div class="block-header">
+                            <div class="block-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="block-title">
+                                <h3>软件演示</h3>
+                                <p>技术实现与用户体验展示</p>
+                            </div>
+                        </div>
+                        <div class="block-content">
+                            <div class="video-preview-card">
+                                <div class="video-cover-image">
+                                    <img src="视频封面.png" alt="软件演示封面">
+                                    <div class="video-play-overlay">
+                                        <div class="play-button" onclick="previewFile('软件.mp4', 'video')">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <h4>安全应对措施软件视频演示</h4>
+                                    <p>展示安全应对措施软件的主要功能和使用流程，包括智能分析、风险评估、应急响应等核心特性。</p>
+                                    <div class="video-features">
+                                        <span class="feature-tag">智能分析</span>
+                                        <span class="feature-tag">风险评估</span>
+                                        <span class="feature-tag">应急响应</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-actions">
+                                <button class="btn btn-primary" onclick="previewFile('软件.mp4', 'video')">
+                                    <i class="fas fa-play"></i> 播放视频
+                                </button>
+                                <button class="btn btn-secondary" onclick="downloadFile('软件.mp4')">
+                                    <i class="fas fa-download"></i> 下载
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 施工方案智能助手板块 -->
+                    <div class="work-block">
+                        <div class="block-header">
+                            <div class="block-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="block-title">
+                                <h3>施工方案智能助手</h3>
+                                <p>AI驱动的施工方案生成与管理工具</p>
+                            </div>
+                        </div>
+                        <div class="block-content">
+                            <div class="smart-assistant-preview">
+                                <div class="assistant-image-container">
+                                    <img src="智能助手.jpg" alt="施工方案智能助手" class="assistant-main-image">
+                                    <div class="assistant-overlay">
+                                        <div class="assistant-info">
+                                            <h4>施工方案智能助手</h4>
+                                            <p>基于AI技术的智能施工方案生成系统</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="assistant-features">
+                                    <div class="feature-item">
+                                        <i class="fas fa-brain"></i>
+                                        <span>智能方案生成</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>文档智能管理</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-comments"></i>
+                                        <span>智能问答系统</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>数据分析报告</span>
+                                    </div>
+                                </div>
+                                <div class="assistant-config">
+                                    <h5>系统配置</h5>
+                                    <div class="config-item">
+                                        <span class="config-key">系统名称:</span>
+                                        <span class="config-value">施工方案智能助手</span>
+                                    </div>
+                                    <div class="config-item">
+                                        <span class="config-key">版本:</span>
+                                        <span class="config-value">v2.0.1</span>
+                                    </div>
+                                    <div class="config-item">
+                                        <span class="config-key">类型:</span>
+                                        <span class="config-value">AI智能系统</span>
+                                    </div>
+                                </div>
+                                <div class="patent-notice">
+                                    <div class="notice-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <div class="notice-content">
+                                        <h6>专利说明</h6>
+                                        <p>本系统相关技术正在申请专利中，暂时不方便公开详细技术细节。专利流程推进完成后，将及时更新相关技术文档和配置信息。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-actions">
+                                <button class="btn btn-primary" onclick="previewFile('附着式升降脚手架文档上传问答工具.yml', 'yaml')">
+                                    <i class="fas fa-code"></i> 查看配置
+                                </button>
+                                <button class="btn btn-secondary" onclick="downloadFile('附着式升降脚手架文档上传问答工具.yml')">
+                                    <i class="fas fa-download"></i> 下载
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 预览模态框 -->
+        <div id="previewModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalTitle">文件预览</h2>
+                    <button class="close-btn" onclick="closeModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="previewContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 照片模态框 -->
+        <div id="photoModal" class="modal">
+            <div class="modal-content photo-modal-content">
+                <div class="modal-header">
+                    <h2 id="photoModalTitle">个人风采</h2>
+                    <button class="close-btn" onclick="closePhotoModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body photo-modal-body">
+                    <div class="photo-viewer">
+                        <img id="photoViewerImg" src="" alt="个人照片">
+                        <div class="photo-navigation">
+                            <button class="nav-btn prev-btn" onclick="previousPhoto()">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="nav-btn next-btn" onclick="nextPhoto()">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 照片相册模态框 -->
+        <div id="galleryModal" class="modal">
+            <div class="modal-content gallery-modal-content">
+                <div class="modal-header">
+                    <h2>个人相册</h2>
+                    <button class="close-btn" onclick="closeGalleryModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body gallery-modal-body">
+                    <div class="gallery-grid" id="galleryGrid">
+                        <!-- 照片将通过JavaScript动态加载 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 证书模态框 -->
+        <div id="certificateModal" class="modal">
+            <div class="modal-content certificate-modal-content">
+                <div class="modal-header">
+                    <h2 id="certificateModalTitle">证书详情</h2>
+                    <button class="close-btn" onclick="closeCertificateModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body certificate-modal-body">
+                    <div class="certificate-viewer">
+                        <img id="certificateViewerImg" src="" alt="证书">
+                        <div class="certificate-navigation">
+                            <button class="nav-btn prev-btn" onclick="previousCertificate()">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="nav-btn next-btn" onclick="nextCertificate()">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

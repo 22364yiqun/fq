@@ -1,0 +1,685 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: 附着式升降脚手架文档上传问答工具
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/ollama:0.0.3@9ded90ac00e8510119a24be7396ba77191c9610d5e1e29f59d68fa1229822fc7
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/voyage:0.0.4@84dbd567848d1b47c91f72d6526916c560c235770f8b1b56479d9a315f5dff38
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables:
+  - description: 编制标准
+    id: 0aa6d4c8-eec2-4437-b2ad-84f164840cf5
+    name: standards
+    selector:
+    - conversation
+    - standards
+    value: ''
+    value_type: string
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions: []
+      allowed_file_types:
+      - document
+      allowed_file_upload_methods:
+      - remote_url
+      - local_file
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 30
+        file_size_limit: 1500
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 1
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: answer
+      id: 1743493669778-source-1743493822939-target
+      source: '1743493669778'
+      sourceHandle: source
+      target: '1743493822939'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: knowledge-retrieval
+      id: 1743147631390-source-1744710877819-target
+      source: '1743147631390'
+      sourceHandle: source
+      target: '1744710877819'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: http-request
+      id: 1746777127940-source-1746760289378-target
+      source: '1746777127940'
+      sourceHandle: source
+      target: '1746760289378'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: list-operator
+        targetType: document-extractor
+      id: 1746777156585-source-1746777127940-target
+      source: '1746777156585'
+      sourceHandle: source
+      target: '1746777127940'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: list-operator
+        targetType: document-extractor
+      id: 1743127913355-source-1743147631390-target
+      source: '1743127913355'
+      sourceHandle: source
+      target: '1743147631390'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: question-classifier
+      id: 1743127688682-source-1747018861666-target
+      source: '1743127688682'
+      sourceHandle: source
+      target: '1747018861666'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: list-operator
+      id: 1747018861666-2-1746777156585-target
+      source: '1747018861666'
+      sourceHandle: '2'
+      target: '1746777156585'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: list-operator
+      id: 1747018861666-1747018966094-1743127913355-target
+      source: '1747018861666'
+      sourceHandle: '1747018966094'
+      target: '1743127913355'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: http-request
+      id: 1743147640188-source-1743493669778-target
+      selected: false
+      source: '1743147640188'
+      sourceHandle: source
+      target: '1743493669778'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1747018861666-1747020743381-1747034974082-target
+      source: '1747018861666'
+      sourceHandle: '1747020743381'
+      target: '1747034974082'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1747034974082-source-1747035217987-target
+      source: '1747034974082'
+      sourceHandle: source
+      target: '1747035217987'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1744710877819-source-1743147640188-target
+      source: '1744710877819'
+      sourceHandle: source
+      target: '1743147640188'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: answer
+      id: 1746760289378-source-1747018420623-target
+      source: '1746760289378'
+      sourceHandle: source
+      target: '1747018420623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 54
+      id: '1743127688682'
+      position:
+        x: 287.80374405158466
+        y: 583.2184332954591
+      positionAbsolute:
+        x: 287.80374405158466
+        y: 583.2184332954591
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        extract_by:
+          enabled: false
+          serial: '1'
+        filter_by:
+          conditions:
+          - comparison_operator: contains
+            key: name
+            value: ''
+          enabled: false
+        item_var_type: file
+        limit:
+          enabled: false
+          size: 10
+        order_by:
+          enabled: false
+          key: ''
+          value: asc
+        selected: false
+        title: 列表操作-方案审核
+        type: list-operator
+        var_type: array[file]
+        variable:
+        - sys
+        - files
+      height: 92
+      id: '1743127913355'
+      position:
+        x: 1058.9985129367758
+        y: 451.76778347129436
+      positionAbsolute:
+        x: 1058.9985129367758
+        y: 451.76778347129436
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文档提取器-方案审核
+        type: document-extractor
+        variable_selector:
+        - sys
+        - files
+      height: 92
+      id: '1743147631390'
+      position:
+        x: 1403.6415967992498
+        y: 451.76778347129436
+      positionAbsolute:
+        x: 1403.6415967992498
+        y: 451.76778347129436
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1744710877819'
+          - result
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-r1:7b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: a7310fc5-4d25-422e-a62a-bd13a116dcae
+          role: system
+          text: "你是一个智能施工方案处理助手，专门针对{{#sys.query#}}用户提供的施工方案文档进行深度分析与优化。你的任务如下：  \n\
+            1. **总结**：提取文档核心内容{{#1743147631390.text#}}，按章节生成结构化摘要；  \n2. **审查**：基于{{#context#}}，检查方案的合规性，标记潜在风险点；且给出文本块所在文档的标题和检索块。\
+            \  \n3. **优化**：针对审查结果，提出可执行的改进建议（如调整材料选型、优化施工流程、补充应急预案。  \n\n请确保输出逻辑清晰，专业术语准确，并优先使用表格、分点列表等结构化格式呈现结果。若文档内容缺失必要信息，需明确提示用户补充。\
+            \  "
+        - id: 0077bd1c-1114-43bc-8ff6-a2860aa52b9a
+          role: user
+          text: "我已上传《附着式升降脚手架专项施工方案》，请完成以下操作：  \n1. **总结**：用不超过500字概括方案核心内容，突出技术要点和安全控制措施；\
+            \  \n2. **审查**：  \n3. **优化**：  \n   - 若发现风险点，提供具体修改建议\n\n请以“审查报告+优化建议”形式输出，关键结论需标注引用规范条款\
+            \  "
+        selected: false
+        title: 'LLM '
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1743147640188'
+      position:
+        x: 2079.5767973536367
+        y: 458.19073354995214
+      positionAbsolute:
+        x: 2079.5767973536367
+        y: 458.19073354995214
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-33
+            key: ''
+            type: text
+            value: '{{#1743147640188.text#}}'
+          type: raw-text
+        desc: ''
+        headers: ''
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求-生成word
+        type: http-request
+        url: http://192.168.224.1.1:5000/convert
+        variables: []
+      height: 136
+      id: '1743493669778'
+      position:
+        x: 2450.8109622776055
+        y: 436.3573502385435
+      positionAbsolute:
+        x: 2450.8109622776055
+        y: 436.3573502385435
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1743493669778.body#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 -word
+        type: answer
+        variables: []
+      height: 105
+      id: '1743493822939'
+      position:
+        x: 2800.5683159550476
+        y: 425.85543310441983
+      positionAbsolute:
+        x: 2800.5683159550476
+        y: 425.85543310441983
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 851f95b4-e622-4fd9-b170-93bde6d71883
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: false
+          reranking_mode: reranking_model
+          reranking_model:
+            model: rerank-1
+            provider: langgenius/voyage/voyage
+          top_k: 4
+        query_variable_selector:
+        - '1743127688682'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索-相关规范
+        type: knowledge-retrieval
+      height: 92
+      id: '1744710877819'
+      position:
+        x: 1749.7753498770383
+        y: 468.2808247834497
+      positionAbsolute:
+        x: 1749.7753498770383
+        y: 468.2808247834497
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-2942
+            key: ''
+            type: text
+            value: '{{#1746777127940.text#}}'
+          type: raw-text
+        desc: ''
+        headers: ''
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 -章节分割
+        type: http-request
+        url: http://10.86.110.58:5000/split-chapters
+        variables: []
+      height: 136
+      id: '1746760289378'
+      position:
+        x: 1769.2060423830944
+        y: 239.3258407713018
+      positionAbsolute:
+        x: 1769.2060423830944
+        y: 239.3258407713018
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文档提取器 -文档提取
+        type: document-extractor
+        variable_selector:
+        - '1746777156585'
+        - result
+      height: 92
+      id: '1746777127940'
+      position:
+        x: 1412.5549853053378
+        y: 255.94502881094363
+      positionAbsolute:
+        x: 1412.5549853053378
+        y: 255.94502881094363
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        extract_by:
+          enabled: false
+          serial: '1'
+        filter_by:
+          conditions:
+          - comparison_operator: contains
+            key: name
+            value: ''
+          enabled: false
+        item_var_type: file
+        limit:
+          enabled: false
+          size: 10
+        order_by:
+          enabled: false
+          key: ''
+          value: asc
+        selected: false
+        title: 列表操作 -用户文档
+        type: list-operator
+        var_type: array[file]
+        variable:
+        - sys
+        - files
+      height: 92
+      id: '1746777156585'
+      position:
+        x: 1073.5130999552775
+        y: 277.9523851889589
+      positionAbsolute:
+        x: 1073.5130999552775
+        y: 277.9523851889589
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1746760289378.body#}}
+
+          {{#1746760289378.headers#}}
+
+          {{#1746760289378.files#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 -分割文档内容
+        type: answer
+        variables: []
+      height: 143
+      id: '1747018420623'
+      position:
+        x: 2154.2618901289097
+        y: 234.38961288804776
+      positionAbsolute:
+        x: 2154.2618901289097
+        y: 234.38961288804776
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '2'
+          name: 方案章节分割
+        - id: '1747018966094'
+          name: 方案审核
+        - id: '1747018972015'
+          name: 方案补写
+        - id: '1747020743381'
+          name: 其他
+        desc: ''
+        instruction: '用户提问{{#sys.query#}}中如果出现“分割”的问题，就归为分类1方案章节分割；
+
+
+          若{{#sys.query#}}用户提问中出现“审核”的问题，则归为分类2方案审核；
+
+
+          若{{#sys.query#}}用户提问中出现“优化”的问题，则归为分类3方案优化；
+
+
+          若{{#sys.query#}}用户提问未涉及以上问题，则归为分类4其他。'
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen2.5:7b
+          provider: langgenius/ollama/ollama
+        query_variable_selector:
+        - '1743127688682'
+        - sys.query
+        selected: false
+        title: 问题分类器
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 248
+      id: '1747018861666'
+      position:
+        x: 603.4185620552184
+        y: 468.2808247834497
+      positionAbsolute:
+        x: 603.4185620552184
+        y: 468.2808247834497
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - sys
+          - query
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-r1:7b
+          provider: langgenius/ollama/ollama
+        prompt_template:
+        - id: 2a4ec18a-ea61-48d7-9db5-c5383b531951
+          role: system
+          text: 根据{{#sys.query#}}和{{#context#}}来回答用户问题
+        selected: false
+        title: LLM -其他问题回答
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1747034974082'
+      position:
+        x: 1058.9985129367758
+        y: 793.5941457455398
+      positionAbsolute:
+        x: 1058.9985129367758
+        y: 793.5941457455398
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1747034974082.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 -其他问题
+        type: answer
+        variables: []
+      height: 105
+      id: '1747035217987'
+      position:
+        x: 1362.9985129367758
+        y: 793.5941457455398
+      positionAbsolute:
+        x: 1362.9985129367758
+        y: 793.5941457455398
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 257.05129634124705
+      y: 21.32184483748094
+      zoom: 1.0000000000000013
